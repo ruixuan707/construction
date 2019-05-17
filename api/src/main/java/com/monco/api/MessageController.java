@@ -11,6 +11,7 @@ import com.monco.core.query.OrderQuery;
 import com.monco.core.query.QueryParam;
 import com.monco.core.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -88,6 +89,10 @@ public class MessageController {
         }
         if (message.getCategory() != null) {
             queryParam = new QueryParam("category", MatchType.equal, message.getCategory());
+            params.add(queryParam);
+        }
+        if (StringUtils.isNotBlank(message.getTitle())) {
+            queryParam = new QueryParam("title", MatchType.like, message.getTitle());
             params.add(queryParam);
         }
         Page<Message> result = messageService.findPage(pageSize, currentPage, params, orderQuery.getOrderType(), orderQuery.getOrderField());

@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  * @Auther: monco
@@ -33,6 +34,11 @@ public class Dictionary extends BaseEntity<Long> {
      * 设置key地址
      */
     private String keyAddress;
+
+    /**
+     * 价格
+     */
+    private BigDecimal keyMoney;
 
     /**
      * 关键字

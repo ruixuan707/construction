@@ -102,6 +102,7 @@ public class User extends BaseEntity<Long> {
      * 工作
      */
     private String job;
+    private Long jobId;
 
     /**
      * 个性签名

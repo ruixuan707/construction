@@ -34,7 +34,7 @@ public class LeaveWordController {
     @Autowired
     LeaveWordService leaveWordService;
 
-    @PostMapping("post")
+    @PostMapping
     public ApiResult save(@RequestBody LeaveWord leaveWord) {
         if (UserManager.get() != null) {
             if (StringUtils.isEmpty(UserManager.get().getNickName())) {

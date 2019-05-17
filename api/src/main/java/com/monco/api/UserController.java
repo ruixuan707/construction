@@ -44,6 +44,14 @@ public class UserController {
         }
     }
 
+    @PostMapping
+    public ApiResult saveUser(@RequestBody UserPage userPage) {
+        User user = new User();
+        pageToEntity(userPage, user);
+        userService.save(user);
+        return ApiResult.ok();
+    }
+
     @GetMapping
     public ApiResult getOne(@RequestParam Long id) {
         UserPage userPage = new UserPage();
